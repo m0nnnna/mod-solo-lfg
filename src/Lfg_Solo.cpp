@@ -20,7 +20,7 @@ public:
 
     lfg_solo_announce() : PlayerScript("lfg_solo_announce") {}
 
-    void OnLogin(Player* player)
+    void OnPlayerLogin(Player* player) override
     {
         // Announce Module
         if (sConfigMgr->GetOption<bool>("SoloLFG.Announce", true))
@@ -37,7 +37,7 @@ public:
     
     // Docker Installation prevents warnings. In order to avoid the issue, we need to add __attribute__ ((unused)) 
     // to the player variable to tell the compiler it is fine not to use it.
-    void OnLogin(Player* player)
+    void OnPlayerLogin(Player* player) override
     {
         if (sConfigMgr->GetOption<int32> ("LFG.SoloMode", 1))
         {
